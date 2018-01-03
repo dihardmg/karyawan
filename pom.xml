@@ -102,7 +102,7 @@
 				<configuration>
 					<failOnNoGitDirectory>false</failOnNoGitDirectory>
 				</configuration>
-			</plugin
+			</plugin>
 		</plugins>
 	</build>
 
