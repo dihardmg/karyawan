@@ -50,7 +50,7 @@ public class KaryawanController {
 
 
     @PostMapping("/karyawan/form")
-    public String simpan(@ModelAttribute @Valid @Validated Karyawan karyawan , BindingResult errors, SessionStatus status) {
+    public String simpan(@Valid @ModelAttribute("karyawan") Karyawan karyawan , BindingResult errors, SessionStatus status, Model model) {
         if (errors.hasErrors()) {
             return "/karyawan/form";
         }

@@ -40,7 +40,7 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
         return httpStatus.getReasonPhrase();
     }
 
-    
+
     @ExceptionHandler(value = {ConstraintViolationException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public String handleValidationFailure(ConstraintViolationException ex) {
