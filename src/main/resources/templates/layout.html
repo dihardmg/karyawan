@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+    <title layout:title-pattern="$LAYOUT_TITLE :: $CONTENT_TITLE">Employe</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="#" th:href="@{/css/select2.min.css}"/>
+    <link rel="stylesheet" href="#" th:href="@{/css/select2-bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css"/>
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap-datetimepicker.min.css}" />
+    <link rel="stylesheet" href="#" th:href="@{/css/AdminLTE.min.css}"/>
+    <link rel="stylesheet" href="#" th:href="@{/css/skins/_all-skins.min.css}"/>
+
+    <!--Bootstrap Select-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="icon" href="#" th:href="@{/img/favicon.ico}" type="image/x-icon"/>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="#" th:src="@{/js/app.min.js}"></script>
+    <script src="#" th:src="@{/js/jquery.slimscroll.min.js}"></script>
+    <script src="#" th:src="@{/js/select2.full.min.js}"></script>
+    <script src="#" th:src="@{/js/region.js}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var menudd = Cookies.get('menu-dd');
+
+            if (menudd != null) {
+                $("#" + menudd).addClass("active");
+            } else {
+                Cookies.set('menu-dd', "user");
+            }
+
+            $(".treeview").each(function () {
+                $(this).click(function () {
+                    $(this.id).addClass("active");
+                    $("#" + Cookies.get('menu-dd')).removeClass("active");
+                    Cookies.set('menu-dd', this.id);
+                });
+            });
+        });
+    </script>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini fuelux">
+<div class="wrapper">
+    <!-- Main Header -->
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="#" th:href="@{/}" class="logo">
+            <span class="logo-mini"><b>A</b>D</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>APLIKASI</b>Karyawan</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="hidden-xs"><span sec:authentication="name">Setting</span>&nbsp;<i class="fa fa-gears"></i></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <p><span sec:authentication="name">Setting</span></p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <a th:href="@{/editprofile}">Edit Profile</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a th:href="@{/changepassword}">Change Password</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a th:href="@{/logout}">Sign Out</a>
+                                    </div>
+                                </div>
+                                <!--                                        <div class="col-md-4">
+                                                                            <a href="#" th:href="@{/user/changepassword}"  class="btn btn-default btn-flat">Change password</a>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <a href="#" class="btn btn-default btn-flat">Edit Profile</a>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <a href="#" th:href="@{/logout}" class="btn btn-default btn-flat">Sign out</a>
+                                                                        </div>-->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+            </div>
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Menu</li>
+
+                <li class="treeview" id="datamaster"  sec:authorize="hasRole('KEGIATAN_ALL')">
+                    <a href="#"><i class="fa fa-th"></i> <span>Data Master</span>
+                        <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                          <li sec:authorize="hasRole('MASTER_KARYAWAN')"><a th:href="@{/karyawan/list}">Karyawan</a></li>
+                      </ul>
+                </li>
+
+                <li class="treeview" id="kegiatandosen" sec:authorize="hasRole('KEGIATAN')">
+                    <a href="#"><i class="fa fa-inbox"></i> <span>Kegiatan</span>
+                        <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                    </a>
+                    <!--                            <ul class="treeview-menu">
+                                                    <li><a th:href="@{/kbm/list}">Kegiatan Belajar Mengajar</a></li>
+                                                    <li><a th:href="@{/tulisan/list}">Tulisan</a></li>
+                                                    <li><a th:href="@{/penelitian/list}">Penelitian</a></li>
+                                                    <li><a th:href="@{/bimbingan/list}">Bimbingan Penelitian</a></li>
+                                                    <li><a th:href="@{/jurnal/list}">Publikasi ke Jurnal</a></li>
+                                                </ul>-->
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/kegiatan/kbm/list}">Halo</a></li>
+                          <!--
+                        <li><a th:href="@{/kegiatan/penelitian/list}"> Bidang Penelitian</a></li>
+                        <li><a th:href="@{/kegiatan/pengabdian/list}"> Bidang Pengabdian</a></li>
+                        <li><a th:href="@{/kegiatan/penunjang/list}"> Bidang Penunjang Lainnya</a></li>
+                        <li><a th:href="@{/pengajuan/profile/list}"> Profile Pengajuan PAK</a></li>
+                        </ul>-->
+                    </ul>
+                </li>
+
+                <li class="treeview" id="laporan">
+                    <a href="#"><i class="fa fa-book"></i> <span>Laporan</span>
+                        <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Laporan 1</a></li>
+                        <li><a href="#">Laporan 2</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <section class="content-header" layout:fragment="breadcrumb"></section>
+        <!-- Content Header (Page header) -->
+        <!-- Main content -->
+        <section class="content" layout:fragment="content">Di sini content utama</section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2017 <a href="#"></a></strong>
+    </footer>
+    <div class="control-sidebar-bg"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+<!--Bootstrap Select-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $(".datepicker").datepicker({
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true
+
+            });
+        });
+    });
+
+</script>
+</body>
+</html>
