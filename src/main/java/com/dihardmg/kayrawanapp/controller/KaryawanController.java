@@ -10,10 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,6 +27,7 @@ import javax.validation.Valid;
 public class KaryawanController {
     @Autowired
     private KaryawanDao karyawanDao;
+
 
     @GetMapping("/karyawan/list")
     public ModelMap karyawan(@PageableDefault(size = 5) Pageable pageable, @RequestParam(name = "value", required = false) String value, Model model){
@@ -49,7 +50,7 @@ public class KaryawanController {
 
 
     @PostMapping("/karyawan/form")
-    public String simpan(@ModelAttribute @Valid Karyawan karyawan , BindingResult errors, SessionStatus status) {
+    public String simpan(@ModelAttribute @Valid @Validated Karyawan karyawan , BindingResult errors, SessionStatus status) {
         if (errors.hasErrors()) {
             return "/karyawan/form";
         }
