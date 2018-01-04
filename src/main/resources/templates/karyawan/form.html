@@ -20,7 +20,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" th:object="${karyawan}" method="post">
+                <form role="form" th:action="@{/karyawan/form}"  th:object="${karyawan}" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="nama">Nama</label>
