@@ -45,11 +45,10 @@ public class KaryawanController {
     }
 
 
-
     @PostMapping("/karyawan/form")
     public String simpan(@Valid @ModelAttribute("karyawan") Karyawan karyawan , BindingResult errors, SessionStatus status) {
         if (errors.hasErrors()) {
-            return "/karyawan/form";
+            return "karyawan/form";
 
         }
         karyawanDao.save(karyawan);
