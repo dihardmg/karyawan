@@ -42,7 +42,7 @@ public class AlamatController {
         }else{
             model.addAttribute("data", alamatDao.findAll(pageable));
         }
-        return "/alamat/list";
+        return "alamat/list";
     }
 
     @GetMapping("/alamat/form")
@@ -52,7 +52,7 @@ public class AlamatController {
         }
         m.addAttribute("alamat", alamat);
         m.addAttribute("karyawan", karyawanDao.findAll());
-        return "/alamat/form";
+        return "alamat/form";
     }
 
     @PostMapping("/alamat/form")

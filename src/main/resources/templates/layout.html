@@ -142,7 +142,7 @@
                                 </span>
                     </a>
                     <ul class="treeview-menu">
-                          <li sec:authorize="hasRole('MASTER_KARYAWAN')"><a th:href="@{/karyawan/list}">Karyawan</a></li>
+                        <li sec:authorize="hasRole('MASTER_KARYAWAN')"><a th:href="@{/karyawan/list}">Karyawan</a></li>
                         <li sec:authorize="hasRole('MASTER_ALAMAT')"><a th:href="@{/alamat/list}">Alamat</a></li>
 
                     </ul>
