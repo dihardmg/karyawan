@@ -1,10 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>List Alamat</title>
+
+    <style>
+        .noWrapColumn{
+            white-space: nowrap !important;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div layout:fragment="breadcrumb">s
+    <h1>Daftar Alamat</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Daftar Alamat</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <a class="box-title btn btn-primary" th:href="@{/alamat/form}">Tambah jenis kegiatan</a>
+                    <div class="box-tools">
+                        <form id="form" action="#" method="get" th:action="@{/alamat/list}">
+                            <div class="input-group input-group-sm" style="width: 250px;">
+                                <input type="text" name="value" class="form-control pull-right" placeholder="Pencarian berdasarkan Komponen Kegiatan" th:if="${key} == null"/>
+                                <input type="text" name="value" class="form-control pull-right" placeholder="Pencarian berdasarkan Komponen Kegiatan" th:if="${key} != null" th:value="${key}"/>
+                                <input type="hidden" name="mode" id="mode"/>
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <th align="center">No</th>
+                                <th align="center">Kategori Nama</th>
+                                <th align="center">Nama</th>
+                                <th align="center">Alamat</th>
+
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr th:each="alamat,iter : ${data}">
+                                <td th:text="${iter.count}">1</td>
+                                <td th:text="${alamat.karyawan.nama}">jenis kegiatan 1</td>
+                                <td th:text="${alamat.nama}">keterangan jenis kegiatan 1</td>
+                                <td th:text="${alamat.alamat}">keterangan jenis kegiatan 1</td>
+
+                                <td>
+                                    <a href="#" class="btn btn-default" th:href="@{/alamat/form(id=${alamat.id})}" title="edit jenis kendaraan"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="#" class="btn btn-default" th:href="@{/alamat/delete(id=${alamat.id})}" title="delete logic"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                            </tr>
+
+                            <tr th:if="${#lists.isEmpty(data.content)}">
+                                <td colspan="13" class="text-center">Data alamat tidak ditemukan </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div th:if="${not #lists.isEmpty(data.content)}">
+                    <div sd:pagination-summary="">info</div>
+
+                    <div class="text-center">
+                        <nav>
+                            <ul class="pagination" sd:pagination="full">
+                                <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

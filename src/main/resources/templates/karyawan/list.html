@@ -34,11 +34,13 @@
                     <table class="table table-bordered">
                         <tbody>
                         <tr>
+                            <th>No</th>
                             <th><a class="sorted" sd:pagination-sort="nama" >Nama</th>
                             <th><a class="sorted" sd:pagination-sort="keterangan" >Keterangan</th>
                             <th>&nbsp;</th>
                         </tr>
                         <tr th:each="st,iter : ${karyawan}">
+                            <td th:text="${iter.count}">1</td>
                             <td th:text="${st.nama}">Jabatan</td>
                             <td th:text="${st.keterangan}">Keterangan</td>
                             <td>
@@ -54,7 +56,7 @@
                 </div>
 
                 <div th:if="${not #lists.isEmpty(karyawan.content)}">
-                    <br/>
+
                 <div sd:pagination-summary="">info</div>
                 <div class="text-center">
                     <nav>

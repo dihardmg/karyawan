@@ -28,8 +28,20 @@ CREATE TABLE c_security_user_password (
     password character varying(255) NOT NULL
 );
 
-CREATE TABLE m_karyawan(
+CREATE TABLE karyawan(
   id character varying(255) NOT NULL,
   nama character varying(255) NOT NULL,
   keterangan character varying(255)
 );
+CREATE TABLE alamat(
+  id character varying(255) NOT NULL,
+   id_karyawan character varying(255) NOT NULL,
+   nama character varying(255) NOT NULL,
+  alamat character varying(255) NOT NULL
+);
+
+CREATE TABLE tambahan(
+  id character varying(255) NOT NULL,
+  tambahan character varying(255) NOT NULL,
+  alamat_id character varying(255) NOT NULL
+  );

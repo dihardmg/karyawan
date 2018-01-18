@@ -20,7 +20,7 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap-datetimepicker.min.css}" />
     <link rel="stylesheet" href="#" th:href="@{/css/AdminLTE.min.css}"/>
     <link rel="stylesheet" href="#" th:href="@{/css/skins/_all-skins.min.css}"/>
-
+   
     <!--Bootstrap Select-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"/>
 
@@ -135,7 +135,7 @@
             <ul class="sidebar-menu">
                 <li class="header">Menu</li>
 
-                <li class="treeview" id="datamaster"  sec:authorize="hasRole('KEGIATAN_ALL')">
+                <li class="treeview" id="datamaster"  sec:authorize="hasRole('KARYAWAN_ALL')">
                     <a href="#"><i class="fa fa-th"></i> <span>Data Master</span>
                         <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
@@ -143,7 +143,9 @@
                     </a>
                     <ul class="treeview-menu">
                           <li sec:authorize="hasRole('MASTER_KARYAWAN')"><a th:href="@{/karyawan/list}">Karyawan</a></li>
-                      </ul>
+                        <li sec:authorize="hasRole('MASTER_ALAMAT')"><a th:href="@{/alamat/list}">Alamat</a></li>
+
+                    </ul>
                 </li>
 
                 <li class="treeview" id="kegiatandosen" sec:authorize="hasRole('KEGIATAN')">

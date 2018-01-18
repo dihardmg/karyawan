@@ -16,8 +16,7 @@ import javax.validation.constraints.Size;
  * @author : Otorus
  * @since : 1/4/18
  */
-@Entity(name = "karyawan")
-@Table(name = "m_karyawan")
+@Entity
 @Data
 public class Karyawan {
 

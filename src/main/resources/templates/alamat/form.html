@@ -1,10 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Tambah Kegiatan</title>
 </head>
 <body>
-$END$
+<div layout:fragment="breadcrumb">
+    <h1>Alamat</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Alamat</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+                <form role="form" th:object="${alamat}" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="kode">Kategori Kegiatan</label>
+                            <select
+                                    class="selectpicker form-control"
+                                    data-live-search="true"
+                                    data-size="10"
+                                    title="Please Select ..."
+                                    th:field="*{karyawan}">
+                                <option th:each="p : ${karyawan}"
+                                        th:value="${p.id}"
+                                        th:text="${p.nama}">Pilihan karyawan
+                                </option>
+                            </select>
+                            <label class="text-danger" th:errors="*{karyawan}">
+                                Pesan error nanti di sini
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Komponen Nama</label>
+                            <input type="text" class="form-control" th:field="*{nama}" id="nama" name="nama" placeholder="komponen kegiatan" />
+                            <label class="text-danger" th:errors="*{nama}">
+                                Pesan error nanti di sini
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Keterangan Alamat</label>
+                            <input type="text" class="form-control" th:field="*{alamat}" id="alamat" name="alamat" placeholder="Bukti Kegiatan" />
+                            <label class="text-danger" th:errors="*{alamat}">
+                                Pesan error nanti di sini
+                            </label>
+                        </div>
+                            <div class="form-group">
+                                <a th:href="@{/alamat/list}" class="btn btn-default" role="button">
+                                    <span aria-hidden="true"></span>Batal
+                                </a>
+                                <button type="submit" class="box-title btn btn-primary">Simpan</button>
+                            </div>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>
