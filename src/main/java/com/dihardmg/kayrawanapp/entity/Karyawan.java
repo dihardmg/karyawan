@@ -5,12 +5,11 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Controller;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Otorus
@@ -33,4 +32,10 @@ public class Karyawan {
     @NotEmpty
     @Size(max = 255)
     private String keterangan;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "karyawan")
+    private List<Alamat> daftarAlamat = new ArrayList<>();
 }
