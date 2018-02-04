@@ -65,6 +65,8 @@ public class AlamatController {
         return "redirect:/alamat/list";
     }
 
+
+
     @GetMapping("/alamat/delete")
     public ModelMap deleteConfirm(@RequestParam(value = "id", required = true) Alamat alamat) {
         return new ModelMap("alamat", alamat);

@@ -24,13 +24,16 @@ public class Alamat {
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "id_karyawan")
+    @JoinColumn (name = "id_karyawan", nullable = false)
     private Karyawan karyawan;
 
     @NotNull
     @NotEmpty
     @Size(min = 3, max = 150)
+    @Column(nullable = false)
     private String nama;
+
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
     private String alamat;

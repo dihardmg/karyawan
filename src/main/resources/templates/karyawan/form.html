@@ -27,7 +27,7 @@
                             <input type="text"
                                    th:field="*{nama}"
                                    name="nama" class="form-control" id="nama" placeholder="Nama" />
-                            <label class="text-danger" th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}">
+                            <label class="control-label error-label" th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}">
                                 Pesan error nanti di sini
                             </label>
                         </div>
@@ -36,7 +36,7 @@
                             <input type="text"
                                    th:field="*{keterangan}"
                                    name="keterangan" class="form-control" id="keterangan" placeholder="Keterangan" />
-                            <label class="text-danger"  th:if="${#fields.hasErrors('keterangan')}"th:errors="*{keterangan}">
+                            <label class="control-label error-label"  th:if="${#fields.hasErrors('keterangan')}"th:errors="*{keterangan}">
                                 Pesan error nanti di sini
                             </label>
                         </div>

@@ -33,21 +33,21 @@
                                         th:text="${p.nama}">Pilihan karyawan
                                 </option>
                             </select>
-                            <label class="text-danger" th:errors="*{karyawan}">
+                            <label class="control-label error-label" th:errors="*{karyawan}">
                                 Pesan error nanti di sini
                             </label>
                         </div>
                         <div class="form-group">
                             <label for="nama">Komponen Nama</label>
                             <input type="text" class="form-control" th:field="*{nama}" id="nama" name="nama" placeholder="komponen kegiatan" />
-                            <label class="text-danger" th:errors="*{nama}">
+                            <label class="control-label error-label" th:errors="*{nama}">
                                 Pesan error nanti di sini
                             </label>
                         </div>
                         <div class="form-group">
                             <label for="alamat">Keterangan Alamat</label>
                             <input type="text" class="form-control" th:field="*{alamat}" id="alamat" name="alamat" placeholder="Bukti Kegiatan" />
-                            <label class="text-danger" th:errors="*{alamat}">
+                            <label class="control-label error-label" th:errors="*{alamat}">
                                 Pesan error nanti di sini
                             </label>
                         </div>

@@ -27,15 +27,12 @@ public class Karyawan {
     @NotEmpty
     @NotNull
     @Size(min = 3, max = 255)
+    @Column(nullable = false)
     private String nama;
 
     @NotEmpty
     @Size(max = 255)
+    @Column(nullable = false)
     private String keterangan;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            mappedBy = "karyawan")
-    private List<Alamat> daftarAlamat = new ArrayList<>();
 }
