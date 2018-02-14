@@ -34,5 +34,5 @@ public class Karyawan {
     @Size(max = 255)
     @Column(nullable = false)
     private String keterangan;
-
+    
 }
