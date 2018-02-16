@@ -37,19 +37,19 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
-                            <tbody>
+
                             <tr>
-                                <th align="center">No</th>
-                                <th align="center">Kategori Nama</th>
-                                <th align="center">Nama</th>
-                                <th align="center">Alamat</th>
+                                <th>No</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Kategori Nama</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Nama</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="alamat">Alamat</th>
 
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
+                            <tbody>
                             <tr th:each="alamat,iter : ${data}">
                                 <td th:text="${iter.count}">1</td>
                                 <td th:text="${alamat.karyawan.nama}">jenis kegiatan 1</td>
@@ -68,7 +68,9 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+
+
+
                 <div th:if="${not #lists.isEmpty(data.content)}">
                     <div sd:pagination-summary="">info</div>
 

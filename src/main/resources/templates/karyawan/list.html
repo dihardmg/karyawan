@@ -36,15 +36,15 @@
                 <div class="box-body">
                     <table class="table table-bordered table-hover">
                         <thead>
-                        <tbody>
                         <tr>
-                            <th>No</th>
-                            <th><a class="sorted" sd:pagination-sort="nama">Nama</th>
-                            <th><a class="sorted" sd:pagination-sort="keterangan">Keterangan</th>
+                            <th> No</th>
+                            <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Nama</th>
+                            <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="keterangan">Keterangan
+                            </th>
                             <th>&nbsp;</th>
                         </tr>
                         </thead>
-
+                        <tbody>
                         <tr th:each="st,iter : ${karyawan}">
                             <td th:text="${iter.count}">1</td>
                             <td th:text="${st.nama}">Jabatan</td>
@@ -62,6 +62,9 @@
                         </tbody>
                     </table>
                 </div>
+
+
+
 
                 <div th:if="${not #lists.isEmpty(karyawan.content)}">
 
