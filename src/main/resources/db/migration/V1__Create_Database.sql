@@ -39,9 +39,3 @@ CREATE TABLE alamat(
    nama character varying(255) NOT NULL,
   alamat character varying(255) NOT NULL
 );
-
-CREATE TABLE tambahan(
-  id character varying(255) NOT NULL,
-  tambahan character varying(255) NOT NULL,
-  alamat_id character varying(255) NOT NULL
-  );
