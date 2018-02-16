@@ -38,7 +38,8 @@
                 </div>
                 <div class="box-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-hover">
+                            <thead>
                             <tbody>
                             <tr>
                                 <th align="center">No</th>
@@ -48,6 +49,7 @@
 
                                 <th>&nbsp;</th>
                             </tr>
+                            </thead>
                             <tr th:each="alamat,iter : ${data}">
                                 <td th:text="${iter.count}">1</td>
                                 <td th:text="${alamat.karyawan.nama}">jenis kegiatan 1</td>
