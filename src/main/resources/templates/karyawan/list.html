@@ -34,36 +34,36 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table class="table table-responsive table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th> No</th>
-                            <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Nama</th>
-                            <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="keterangan">Keterangan
-                            </th>
-                            <th>&nbsp;</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="st,iter : ${karyawan}">
-                            <td th:text="${iter.count}">1</td>
-                            <td th:text="${st.nama}">Jabatan</td>
-                            <td th:text="${st.keterangan}">Keterangan</td>
-                            <td>
-                                <a href="#" class="btn btn-default" th:href="@{/karyawan/form(id=${st.id})}"
-                                   title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
-                                <a href="#" class="btn btn-default" th:href="@{/karyawan/delete(id=${st.id})}"
-                                   title="Delete Data"><span class="glyphicon glyphicon-trash"></span></a>
-                            </td>
-                        </tr>
-                        <tr th:if="${#lists.isEmpty(karyawan.content)}">
-                            <td colspan="13" class="text-center">Data karyawan tidak ditemukan</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th> No</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Nama</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="keterangan">Keterangan
+                                </th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="st,iter : ${karyawan}">
+                                <td th:text="${iter.count}">1</td>
+                                <td th:text="${st.nama}">Jabatan</td>
+                                <td th:text="${st.keterangan}">Keterangan</td>
+                                <td>
+                                    <a href="#" class="btn btn-default" th:href="@{/karyawan/form(id=${st.id})}"
+                                       title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="#" class="btn btn-default" th:href="@{/karyawan/delete(id=${st.id})}"
+                                       title="Delete Data"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                            </tr>
+                            <tr th:if="${#lists.isEmpty(karyawan.content)}">
+                                <td colspan="13" class="text-center">Data karyawan tidak ditemukan</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
-
 
 
                 <div th:if="${not #lists.isEmpty(karyawan.content)}">

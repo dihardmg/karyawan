@@ -4,7 +4,7 @@
     <title>List Alamat</title>
 
     <style>
-        .noWrapColumn{
+        .noWrapColumn {
             white-space: nowrap !important;
         }
     </style>
@@ -26,8 +26,11 @@
                     <div class="box-tools">
                         <form id="form" action="#" method="get" th:action="@{/alamat/list}">
                             <div class="input-group input-group-sm" style="width: 250px;">
-                                <input type="text" name="value" class="form-control pull-right" placeholder="Pencarian berdasarkan Komponen Kegiatan" th:if="${key} == null"/>
-                                <input type="text" name="value" class="form-control pull-right" placeholder="Pencarian berdasarkan Komponen Kegiatan" th:if="${key} != null" th:value="${key}"/>
+                                <input type="text" name="value" class="form-control pull-right"
+                                       placeholder="Pencarian berdasarkan Komponen Kegiatan" th:if="${key} == null"/>
+                                <input type="text" name="value" class="form-control pull-right"
+                                       placeholder="Pencarian berdasarkan Komponen Kegiatan" th:if="${key} != null"
+                                       th:value="${key}"/>
                                 <input type="hidden" name="mode" id="mode"/>
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -37,14 +40,17 @@
                     </div>
                 </div>
                 <div class="box-body">
-                        <table class="table table-responsive table-bordered table-hover">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
                             <thead>
 
                             <tr>
                                 <th>No</th>
-                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Kategori Nama</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Kategori
+                                    Nama</th>
                                 <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Nama</th>
-                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="alamat">Alamat</th>
+                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="alamat">Alamat
+                                </th>
 
                                 <th>&nbsp;</th>
                             </tr>
@@ -57,18 +63,20 @@
                                 <td th:text="${alamat.alamat}">keterangan jenis kegiatan 1</td>
 
                                 <td>
-                                    <a href="#" class="btn btn-default" th:href="@{/alamat/form(id=${alamat.id})}" title="edit jenis kendaraan"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a href="#" class="btn btn-default" th:href="@{/alamat/delete(id=${alamat.id})}" title="delete logic"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a href="#" class="btn btn-default" th:href="@{/alamat/form(id=${alamat.id})}"
+                                       title="edit jenis kendaraan"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="#" class="btn btn-default" th:href="@{/alamat/delete(id=${alamat.id})}"
+                                       title="delete logic"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
 
                             <tr th:if="${#lists.isEmpty(data.content)}">
-                                <td colspan="13" class="text-center">Data alamat tidak ditemukan </td>
+                                <td colspan="13" class="text-center">Data alamat tidak ditemukan</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-
+                </div>
 
 
                 <div th:if="${not #lists.isEmpty(data.content)}">
@@ -78,7 +86,8 @@
                         <nav>
                             <ul class="pagination" sd:pagination="full">
                                 <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
-                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <li class="disabled"><a href="#" aria-label="Previous"><span
+                                        aria-hidden="true">&laquo;</span></a></li>
                                 <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
                             </ul>
                         </nav>
