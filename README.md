@@ -1,3 +1,3 @@
-## crud appkaryawan with adminLTE
+## sample crud appkaryawan
 
-![Screenshot](img/app.gif "Screenshot")
+![Screenshot](img/screenshoot.gif "Screenshot")
