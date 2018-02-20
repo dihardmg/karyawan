@@ -36,6 +36,8 @@ public class KaryawanController {
         }
     }
 
+
+
     @GetMapping("/karyawan/form")
     public ModelMap tampilkanForm(@RequestParam(value = "id", required = false) Karyawan karyawan ) {
         if (karyawan == null) {
@@ -45,11 +47,12 @@ public class KaryawanController {
     }
 
 
+
+
     @PostMapping("/karyawan/form")
     public String simpan(@Valid @ModelAttribute("karyawan") Karyawan karyawan , BindingResult errors, SessionStatus status) {
         if (errors.hasErrors()) {
             return "karyawan/form";
-
         }
         karyawanDao.save(karyawan);
         status.setComplete();
@@ -58,15 +61,18 @@ public class KaryawanController {
 
 
 
+
     @GetMapping("/karyawan/delete")
     public ModelMap deleteConfirm(@RequestParam(value = "id", required = true) Karyawan karyawan ) {
         return new ModelMap("karyawan", karyawan);
     }
 
+
+
+
     @PostMapping("/karyawan/delete")
     public Object delete(@ModelAttribute Karyawan karyawan , SessionStatus status) {
         try{
-
             karyawanDao.delete(karyawan);
         } catch (DataIntegrityViolationException exception) {
             status.setComplete();
@@ -79,7 +85,6 @@ public class KaryawanController {
         status.setComplete();
         return "redirect:/karyawan/list";
     }
-
 }
 
 

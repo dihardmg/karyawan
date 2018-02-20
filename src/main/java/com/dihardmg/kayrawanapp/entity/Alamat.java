@@ -21,8 +21,7 @@ public class Alamat {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-
-    @ManyToOne
+    @OneToOne
     @NotNull
     @JoinColumn (name = "id_karyawan", nullable = false)
     private Karyawan karyawan;
@@ -37,6 +36,5 @@ public class Alamat {
     @NotNull
     @NotEmpty
     private String alamat;
-
 
 }

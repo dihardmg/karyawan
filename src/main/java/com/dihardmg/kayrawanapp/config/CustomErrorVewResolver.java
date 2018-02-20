@@ -21,18 +21,19 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
 
     @Override
     public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status,
-                                         Map<String, Object> model){
+                                         Map<String, Object> model) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
         Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
-        String exceptionMessage  = getExceptionMessage(throwable, statusCode);
+        String exceptionMessage = getExceptionMessage(throwable, statusCode);
 
         ModelAndView modelv = new ModelAndView("error");
         modelv.addObject("status", request.getAttribute("javax.servlet.error.status_code"));
         return modelv;
     }
 
-    private String getExceptionMessage(Throwable throwable, Integer statusCode){
-        if (throwable != null){
+
+    private String getExceptionMessage(Throwable throwable, Integer statusCode) {
+        if (throwable != null) {
             return throwable.getMessage();
         }
 

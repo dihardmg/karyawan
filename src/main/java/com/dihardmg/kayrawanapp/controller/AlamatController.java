@@ -31,19 +31,19 @@ public class AlamatController {
     private AlamatDao alamatDao;
 
 
-
     @RequestMapping("/alamat/list")
     public String alamat(Model model, @PageableDefault(size = 5) Pageable pageable,
-                                @RequestParam(name = "value",required = false) String value) {
-
-        if(value != null){
-            model.addAttribute("key",value);
-            model.addAttribute("data",alamatDao.findByNamaContainingIgnoreCase(value, pageable));
-        }else{
+                         @RequestParam(name = "value", required = false) String value) {
+        if (value != null) {
+            model.addAttribute("key", value);
+            model.addAttribute("data", alamatDao.findByNamaContainingIgnoreCase(value, pageable));
+        } else {
             model.addAttribute("data", alamatDao.findAll(pageable));
         }
         return "alamat/list";
+
     }
+
 
     @GetMapping("/alamat/form")
     public String tampilkanForms(@RequestParam(value = "id", required = false) Alamat alamat, Model m) {
@@ -55,8 +55,9 @@ public class AlamatController {
         return "alamat/form";
     }
 
+
     @PostMapping("/alamat/form")
-    public String simpan(@ModelAttribute @Valid Alamat alamat , BindingResult errors, SessionStatus status) {
+    public String simpan(@ModelAttribute @Valid Alamat alamat, BindingResult errors, SessionStatus status) {
         if (errors.hasErrors()) {
             return "alamat/form";
         }
@@ -72,9 +73,11 @@ public class AlamatController {
         return new ModelMap("alamat", alamat);
     }
 
+
+
     @PostMapping("/alamat/delete")
-    public Object delete(@ModelAttribute Alamat alamat , SessionStatus status) {
-        try{
+    public Object delete(@ModelAttribute Alamat alamat, SessionStatus status) {
+        try {
             alamatDao.delete(alamat);
         } catch (DataIntegrityViolationException exception) {
             status.setComplete();
@@ -82,7 +85,7 @@ public class AlamatController {
                     .addObject("entityId", alamat.getNama())
                     .addObject("entityName", "Alamat")
                     .addObject("errorCause", exception.getRootCause().getMessage())
-                    .addObject("backLink","/alamat/list");
+                    .addObject("backLink", "/alamat/list");
         }
         status.setComplete();
         return "redirect:/alamat/list";
