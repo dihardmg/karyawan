@@ -17,6 +17,8 @@
             <div class="box">
                 <div class="box-header with-border">
                     <a class="box-title btn btn-primary" th:href="@{/karyawan/form}">Tambah Karyawan</a>
+
+
                     <div class="box-tools">
                         <form th:action="@{/karyawan/list}" method="get">
                             <div class="input-group input-group-sm" style="width: 250px;">
@@ -34,7 +36,10 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
+                    <div class="btn-group dropup" sd:page-size-selector="dropdown"></div> records per page
+
                     <div class="table-responsive">
+
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
