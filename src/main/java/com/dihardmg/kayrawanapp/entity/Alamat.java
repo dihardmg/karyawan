@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
  * @since : 1/10/18
  */
 @Entity
+@Table(name = "alamat")
 @Data
 public class Alamat {
     @Id
@@ -21,8 +22,9 @@ public class Alamat {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    @OneToOne
+
     @NotNull
+    @ManyToOne
     @JoinColumn (name = "id_karyawan", nullable = false)
     private Karyawan karyawan;
 

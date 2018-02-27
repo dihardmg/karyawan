@@ -29,13 +29,19 @@ CREATE TABLE c_security_user_password (
 );
 
 CREATE TABLE karyawan(
-  id character varying(255) NOT NULL,
+  id character varying(255) NOT NULL PRIMARY KEY,
   nama character varying(255) NOT NULL,
   keterangan character varying(255)
 );
+
 CREATE TABLE alamat(
-  id character varying(255) NOT NULL,
-   id_karyawan character varying(255) NOT NULL,
-   nama character varying(255) NOT NULL,
-  alamat character varying(255) NOT NULL
+  id character varying(255) NOT NULL PRIMARY key,
+  nama character varying(255) NOT NULL,
+  alamat character varying(255) NOT NULL,
+  id_karyawan character varying(255) NOT NULL
 );
+
+ALTER TABLE alamat
+ADD CONSTRAINT fk_alamat_karyawan FOREIGN KEY (id_karyawan) REFERENCES karyawan(id);
+
+

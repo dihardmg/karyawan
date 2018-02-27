@@ -16,6 +16,7 @@ import java.util.List;
  * @since : 1/4/18
  */
 @Entity
+@Table(name = "karyawan")
 @Data
 public class Karyawan {
 
