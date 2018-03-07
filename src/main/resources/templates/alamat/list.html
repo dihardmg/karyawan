@@ -20,7 +20,7 @@
 <div layout:fragment="content">
     <div class="row">
         <div class="col-xs-12">
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header with-border">
                     <a class="box-title btn btn-primary" th:href="@{/alamat/form}">Tambah alamat</a>
                     <div class="box-tools">
@@ -68,9 +68,9 @@
 
                                 <td>
                                     <a href="#" class="btn btn-default" th:href="@{/alamat/form(id=${alamat.id})}"
-                                       title="edit jenis kendaraan"><span class="glyphicon glyphicon-edit"></span></a>
+                                       title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
                                     <a href="#" class="btn btn-default" th:href="@{/alamat/delete(id=${alamat.id})}"
-                                       title="delete logic"><span class="glyphicon glyphicon-trash"></span></a>
+                                       title="Delete data"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
 

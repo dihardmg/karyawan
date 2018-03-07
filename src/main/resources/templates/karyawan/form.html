@@ -8,7 +8,7 @@
     <h1>Data Karyawan</h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Tambah Data Karyawan</li>
+        <li class="active">Data Karyawan</li>
     </ol>
 </div>
 <div layout:fragment="content">
@@ -41,10 +41,10 @@
                             </label>
                         </div>
                         <div class="form-group">
-                            <a th:href="@{/karyawan/list}" class="btn btn-default" role="button">
+                            <a th:href="@{/karyawan/list}" class="btn btn-default" role="button" title="Back list">
                                 <span aria-hidden="true"></span>Batal
                             </a>
-                            <button type="submit" class="box-title btn btn-primary">Simpan</button>
+                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Simpan</button>
                         </div>
                     </div>
                     <!-- /.box-body -->

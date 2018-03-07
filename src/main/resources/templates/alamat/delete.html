@@ -1,43 +1,65 @@
 <!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
 <html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-    <title>Hapus Alamat</title>
+    <title>Hapus Data</title>
 </head>
 <body>
+<div layout:fragment="breadcrumb">
+    <h1>Hapus Data Alamat?</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Hapus Data Alamat</li>
+    </ol>
+</div>
 <div layout:fragment="content">
-    <a href="delete.html"></a>
-    <h3>Hapus Alamat?</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" th:object="${alamat}" method="post">
 
-    <form class="form-horizontal" th:object="${alamat}" method="post">
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Kategori nama</label>
-            <div class="col-sm-10">
-                <p class="form-control-static" th:text="*{karyawan.nama}">kode</p>
-            </div>
-        </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="nama">KategoriNama</label>
+                            <input type="text"
+                                   th:field="*{karyawan.nama}"
+                                   name="nama" class="form-control" id="nama" placeholder="Nama" disabled/>
+                        </div>
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Komponen Nama</label>
-            <div class="col-sm-10">
-                <p class="form-control-static" th:text="*{nama}">nama</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Keterangan Alamat</label>
-            <div class="col-sm-10">
-                <p class="form-control-static" th:text="*{alamat}">bukti</p>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <a th:href="@{/alamat/list}" class="btn btn-default" role="button">
-                    <span aria-hidden="true"></span>Batal
-                </a>
-                <button type="submit" class="btn btn-danger">Hapus</button>
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text"
+                                   th:field="*{nama}"
+                                   name="nama" class="form-control" id="nama" placeholder="Keterangan" disabled/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="nama">Keterangan Nama</label>
+                            <input type="text"
+                                   th:field="*{alamat}"
+                                   name="alamat" class="form-control" id="alamat" placeholder="alamat" disabled/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <a th:href="@{/karyawan/list}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Batal
+                            </a>
+                            <button type="submit" class="btn btn-danger" title="Delete Data">Hapus</button>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>

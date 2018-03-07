@@ -1,14 +1,14 @@
 <!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
 <html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-    <title>Tambah Kegiatan</title>
+    <title>Data Alamat</title>
 </head>
 <body>
 <div layout:fragment="breadcrumb">
     <h1>Alamat</h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Alamat</li>
+        <li class="active">Data Alamat</li>
     </ol>
 </div>
 <div layout:fragment="content">
@@ -54,10 +54,10 @@
                             </label>
                         </div>
                         <div class="form-group">
-                            <a th:href="@{/alamat/list}" class="btn btn-default" role="button">
+                            <a th:href="@{/alamat/list}" class="btn btn-default" role="button" title="Back list">
                                 <span aria-hidden="true"></span>Batal
                             </a>
-                            <button type="submit" class="box-title btn btn-primary">Simpan</button>
+                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Simpan</button>
                         </div>
                     </div>
 
