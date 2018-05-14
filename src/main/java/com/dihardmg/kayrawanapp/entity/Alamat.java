@@ -1,6 +1,6 @@
 package com.dihardmg.kayrawanapp.entity;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,20 +13,14 @@ import javax.validation.constraints.Size;
  * @author : Otorus
  * @since : 1/10/18
  */
+@Data
 @Entity
 @Table(name = "alamat")
-@Data
 public class Alamat {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-
-
-    @NotNull
-    @ManyToOne
-    @JoinColumn (name = "id_karyawan", nullable = false)
-    private Karyawan karyawan;
 
     @NotNull
     @NotEmpty
@@ -38,5 +32,9 @@ public class Alamat {
     @NotNull
     @NotEmpty
     private String alamat;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_karyawan")
+    private Karyawan karyawan;
 
 }
