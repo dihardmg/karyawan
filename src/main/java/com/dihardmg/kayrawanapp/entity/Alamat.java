@@ -15,7 +15,11 @@ import javax.validation.constraints.Size;
  */
 @Data
 @Entity
-@Table(name = "alamat")
+@Table(name = "alamat",
+        indexes = {
+                @Index(columnList = "nama", name = "nama_alamat_idx"),
+                @Index(columnList = "alamat", name = "alamat_alamat_idx")
+        })
 public class Alamat {
     @Id
     @GeneratedValue(generator = "uuid")

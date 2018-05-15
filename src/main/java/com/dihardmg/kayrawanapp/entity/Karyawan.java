@@ -17,7 +17,11 @@ import java.util.List;
 @Data
 @ToString(exclude = "listAlamat")
 @Entity
-@Table(name = "karyawan")
+@Table(name = "karyawan",
+        indexes = {
+                @Index(columnList = "nama", name = "nama_karyawan_idx"),
+                @Index(columnList = "keterangan", name = "ket_karyawan_idx")
+        })
 public class Karyawan {
 
     @Id
