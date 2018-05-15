@@ -41,7 +41,8 @@ CREATE TABLE alamat(
   id_karyawan character varying(255) NOT NULL
 );
 
+/** ~ Auto generate jpa from mappedBy = "karyawan"
 ALTER TABLE alamat
 ADD CONSTRAINT fk_alamat_karyawan FOREIGN KEY (id_karyawan) REFERENCES karyawan(id);
-
+ */
 
