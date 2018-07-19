@@ -17,9 +17,9 @@
 
 ### IntelliJ IDEA ###
 .idea
-*.iws
-*.iml
-*.ipr
+.iws
+.iml
+.ipr
 out/
 
 ### OSX ###
